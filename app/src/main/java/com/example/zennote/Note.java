@@ -1,4 +1,4 @@
-package com.example.easytutonotes;
+package com.example.zennote;
 
 
 import io.realm.RealmObject;
@@ -7,6 +7,7 @@ public class Note extends RealmObject {
     String title;
     String description;
     long createdTime;
+    //add dateSelected
 
     public String getTitle() {
         return title;

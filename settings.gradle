@@ -1,2 +1,2 @@
-rootProject.name = "EasyTutoNotes"
+rootProject.name = "ZenNote"
 include ':app'

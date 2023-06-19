@@ -1,4 +1,4 @@
-package com.example.easytutonotes;
+package com.example.zennote;
 
 import android.content.Context;
 

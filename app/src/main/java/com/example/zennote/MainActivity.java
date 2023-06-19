@@ -1,4 +1,4 @@
-package com.example.easytutonotes;
+package com.example.zennote;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

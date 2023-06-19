@@ -1,4 +1,4 @@
-package com.example.easytutonotes;
+package com.example.zennote;
 
 import androidx.appcompat.app.AppCompatActivity;
 import io.realm.Realm;
