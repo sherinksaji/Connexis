@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,10 +22,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     RealmResults<NoteModel> notesList;
+    ArrayList<Integer> emojisAL;
 
     public MyAdapter(Context context, RealmResults<NoteModel> notesList) {
         this.context = context;
         this.notesList = notesList;
+        this.emojisAL = new ArrayList<>();
+        emojisAL.add(R.drawable.emoji_1);
+        emojisAL.add(R.drawable.emoji_2);
+        emojisAL.add(R.drawable.emoji_3);
+        emojisAL.add(R.drawable.emoji_4);
+        emojisAL.add(R.drawable.emoji_5);
     }
 
     @NonNull
@@ -35,16 +43,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
+
         NoteModel note = notesList.get(position);
         String sendingFormatedTime = DateFormat.getDateTimeInstance().format(note.getSendingTime());
         holder.sendingTime.setText(sendingFormatedTime);
 
         //TODO: set before emoji
-        holder.beforeEmoji.setImageResource(R.drawable.emoji_1);
+        holder.beforeEmoji.setImageResource(emojisAL.get(note.getMoodBefore()-1));
         //TODO: set arrow
         holder.arrow.setImageResource(R.drawable.arrow);
         //TODO: set after emoji
-        holder.afterEmoji.setImageResource(R.drawable.emoji_5);
+        holder.afterEmoji.setImageResource(emojisAL.get(note.getMoodAfter()-1));
         holder.text.setText(note.getText());
 
         String createdFormatedTime = DateFormat.getDateTimeInstance().format(note.getCreatedTime());
