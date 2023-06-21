@@ -51,6 +51,57 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mood_question"
+        android:text="How are you feeling today?"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="left"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="65dp"
+            android:background="@drawable/emoji_1"
+            app:backgroundTint="@drawable/emoji_1" />
+
+        <ImageButton
+            android:layout_width="63dp"
+            android:layout_height="64dp"
+            android:background="@drawable/emoji_2"
+            app:backgroundTint="@drawable/emoji_2" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="66dp"
+            android:background="@drawable/emoji_3"
+            app:backgroundTint="@drawable/emoji_3" />
+
+        <ImageButton
+            android:layout_width="62dp"
+            android:layout_height="66dp"
+            android:background="@drawable/emoji_4"
+            app:backgroundTint="@drawable/emoji_4" />
+
+        <ImageButton
+            android:layout_width="64dp"
+            android:layout_height="62dp"
+            android:background="@drawable/emoji_5"
+            app:backgroundTint="@drawable/emoji_5" />
+
+    </LinearLayout>
+
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
