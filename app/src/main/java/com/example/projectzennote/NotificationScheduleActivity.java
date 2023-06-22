@@ -2,42 +2,93 @@ package com.example.projectzennote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 
 public class NotificationScheduleActivity extends AppCompatActivity {
-    final Calendar selectedDate= Calendar.getInstance();
+    final Calendar selectedDate = Calendar.getInstance();
     int dayOfMonth;
     int month;
     int year;
+
+    PendingIntent pending_intent;
+    AlarmManager alarm_manager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_schedule);
 
         dayOfMonth = getIntent().getIntExtra("dayOfMonth", 0);
-        month=getIntent().getIntExtra("month", 0);
-        year=getIntent().getIntExtra("year", 0);
+        month = getIntent().getIntExtra("month", 0);
+        year = getIntent().getIntExtra("year", 0);
         selectedDate.set(Calendar.YEAR, year);
         selectedDate.set(Calendar.MONTH,
                 month);
         selectedDate.set(Calendar.DAY_OF_MONTH,
                 dayOfMonth);
-        selectedDate.set(Calendar.HOUR_OF_DAY,7);
-        selectedDate.set(Calendar.MINUTE,0);
-        selectedDate.set(Calendar.SECOND,0);
+        selectedDate.set(Calendar.HOUR_OF_DAY, 7);
+        selectedDate.set(Calendar.MINUTE, 0);
+        selectedDate.set(Calendar.SECOND, 0);
         selectedDate.set(Calendar.MILLISECOND, 0);
 
         String sendingFormatedTime = DateFormat.getDateTimeInstance().format(selectedDate.getTimeInMillis());
-         Log.i("sendingTime",sendingFormatedTime);// correct time is logged!!
+        Log.i("sendingTime", sendingFormatedTime);// correct time is logged!!
 
-         //focus on notification independent of everything else here
+        notification_channel();
+        pending_intent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(this, broadcast_receiver.class), PendingIntent.FLAG_IMMUTABLE);
+        alarm_manager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        TextView schedule = findViewById(R.id.textView);
+        schedule.setOnClickListener(e->{
+            set_notification_alarm(60);
+        });
+        // selectedDate.getTimeInMillis() - System.currentTimeMillis()
     }
 
+    public void set_notification_alarm(long interval) {
+        long triggerAtMillis = System.currentTimeMillis() + interval;
 
+        // Calendar calendar = Calendar.getInstance();
+        // calendar.set(Calendar.HOUR_OF_DAY, 0);
+        // calendar.set(Calendar.MINUTE, 0);
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            alarm_manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pending_intent);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarm_manager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pending_intent);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            alarm_manager.setExact(AlarmManager.RTC_WAKEUP, triggerAtMillis, pending_intent);
+        } else {
+            alarm_manager.set(AlarmManager.RTC_WAKEUP, triggerAtMillis, pending_intent);
+        }
+    }
+    public void cancel_notification_alarm() {
+        alarm_manager.cancel(pending_intent);
+    }
+    private void notification_channel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Reminder";
+            String description = "Reminder Notification";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("Notification", name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+}
 
 //
 //        // Create a unique notification channel ID
@@ -111,4 +162,3 @@ public class NotificationScheduleActivity extends AppCompatActivity {
 //        return random.nextInt(1000000);
 //    }
 
-}
