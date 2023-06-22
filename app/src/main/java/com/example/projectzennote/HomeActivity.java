@@ -40,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this,ViewNoteActivity.class));
             }
         });
+        viewNoteBtn.setVisibility(View.GONE);//make this visible when needed
     }
 
 

@@ -11,7 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,8 +48,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
 
         NoteModel note = notesList.get(position);
-        String sendingFormatedTime = DateFormat.getDateTimeInstance().format(note.getSendingTime());
-        holder.sendingTime.setText(sendingFormatedTime);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String sendingFormatedTime = dateFormat.format(new Date(note.getSendingTime()));
+        holder.sendingTime.setText("Send on "+sendingFormatedTime);
 
         //TODO: set before emoji
         holder.beforeEmoji.setImageResource(emojisAL.get(note.getMoodBefore()));
@@ -57,8 +60,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.afterEmoji.setImageResource(emojisAL.get(note.getMoodAfter()));
         holder.text.setText(note.getText());
 
-        String createdFormatedTime = DateFormat.getDateTimeInstance().format(note.getCreatedTime());
-        holder.createdTime.setText(createdFormatedTime);
+        String createdFormatedTime = dateFormat.format(new Date(note.getCreatedTime()));
+        holder.createdTime.setText("Created on "+createdFormatedTime);
+
+        if (note.getMoodAfter()==0){
+            holder.arrow.setVisibility(View.GONE);
+            holder.afterEmoji.setVisibility(View.GONE);
+        }
+
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

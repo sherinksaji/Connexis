@@ -13,7 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -121,7 +123,7 @@ public class ViewNoteActivity extends AppCompatActivity {
 //      END OF MOOD BAR CHUNK
 
         viewNextBtn=findViewById(R.id.viewNextBtn);
-        viewNextBtn.setImageResource(R.drawable.arrow);
+        viewNextBtn.setVisibility(View.GONE);
         viewNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,7 +140,8 @@ public class ViewNoteActivity extends AppCompatActivity {
     }
 
     public void displayCurrentNote(){
-        String sendingFormatedTime = DateFormat.getDateTimeInstance().format(notes.get(counter).getCreatedTime());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String sendingFormatedTime = dateFormat.format(new Date(notes.get(counter).getCreatedTime()));
         text.setText(notes.get(counter).getText());
         createdTimeTV.setText("You wrote this note on "+sendingFormatedTime);
 
