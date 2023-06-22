@@ -1,34 +1,56 @@
 package com.example.projectzennote;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.google.android.material.button.MaterialButton;
+
+import java.text.DateFormat;
 
 import java.util.Calendar;
 import java.util.Random;
 
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
+
 public class AddNoteActivity extends AppCompatActivity {
+
+
     Realm realm;
     Button sendDatePkrBtn;
     EditText textInput;
     MaterialButton savebtn;
     final Calendar selectedDate= Calendar.getInstance();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
+
 
         sendDatePkrBtn=findViewById(R.id.sendDatePkrBtn);
         textInput=findViewById(R.id.textInput);
@@ -63,6 +85,9 @@ public class AddNoteActivity extends AppCompatActivity {
                 saveNote();
             }
         });
+
+
+
     }
 
     public void datePicker(){
@@ -97,6 +122,8 @@ public class AddNoteActivity extends AppCompatActivity {
                                 mDay);
                         selectedDate.set(Calendar.HOUR_OF_DAY,7);
                         selectedDate.set(Calendar.MINUTE,0);
+                        selectedDate.set(Calendar.SECOND,0);
+                        selectedDate.set(Calendar.MILLISECOND, 0);
                         selectedDate.getTimeInMillis();
                         Log.i("selectedDate",selectedDate.toString());
                     }
@@ -134,10 +161,9 @@ public class AddNoteActivity extends AppCompatActivity {
     }
 
 
-    public void saveNote(){
+    public void saveNote() {
         String text = textInput.getText().toString();
         long createdTime = System.currentTimeMillis();
-
         realm.beginTransaction();
         NoteModel noteModel = realm.createObject(NoteModel.class);
         noteModel.setCreatedTime(createdTime);
@@ -146,7 +172,14 @@ public class AddNoteActivity extends AppCompatActivity {
         noteModel.setMoodBefore(1);
         noteModel.setMoodAfter(5);
         realm.commitTransaction();
-        Toast.makeText(getApplicationContext(),"Note saved",Toast.LENGTH_SHORT).show();
-        finish();
+        Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AddNoteActivity.this,NotificationScheduleActivity.class);
+        intent.putExtra("dayOfMonth",selectedDate.get(Calendar.DAY_OF_MONTH));
+        intent.putExtra("month",selectedDate.get(Calendar.MONTH));
+        intent.putExtra("year",selectedDate.get(Calendar.YEAR));
+        startActivity(intent);
     }
+
+
+
 }

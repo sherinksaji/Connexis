@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00B0FF"
+    android:padding="10dp"
+    tools:context=".ViewHistoryActivity">
+
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:text="Today's Note"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/createdTime"
+        android:layout_width="402dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/banner"
+        android:textColor="#858484"
+        android:textSize="12dp"
+        tools:text="You wrote this note on Jan 21 2020 " />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="397dp"
+        android:layout_height="269dp"
+        android:layout_below="@id/createdTime"
+        android:layout_marginTop="29dp"
+        android:textColor="#393939"
+        tools:text="My long long long descrption" />
+
+
+    <TextView
+        android:id="@+id/feelingQn"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text"
+        android:layout_marginTop="29dp"
+        android:textColor="#393939"
+        tools:text="How are you feeling after reading your note?" />
+
+</RelativeLayout>
