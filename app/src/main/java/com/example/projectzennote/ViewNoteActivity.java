@@ -2,6 +2,7 @@ package com.example.projectzennote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -150,5 +151,9 @@ public class ViewNoteActivity extends AppCompatActivity {
 
 
         Log.i("updateMoodTest",notes.get(0).toString());
+    }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ViewNoteActivity.this,HomeActivity.class));
     }
 }
