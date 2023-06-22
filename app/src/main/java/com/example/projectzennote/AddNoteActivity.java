@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -45,6 +46,13 @@ public class AddNoteActivity extends AppCompatActivity {
     MaterialButton savebtn;
     final Calendar selectedDate= Calendar.getInstance();
 
+    //  for the mood bar buttons
+    private int rating = 0;
+    private ImageView moodImage1;
+    private ImageView moodImage2;
+    private ImageView moodImage3;
+    private ImageView moodImage4;
+    private ImageView moodImage5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +93,54 @@ public class AddNoteActivity extends AppCompatActivity {
                 saveNote();
             }
         });
+        //      START OF MOOD BAR CHUNK
+        moodImage1 = findViewById(R.id.mood_image1);
+        moodImage2 = findViewById(R.id.mood_image2);
+        moodImage3 = findViewById(R.id.mood_image3);
+        moodImage4 = findViewById(R.id.mood_image4);
+        moodImage5 = findViewById(R.id.mood_image5);
 
+        moodImage1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 1;
+            }
+        });
 
+        moodImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 2;
+            }
+        });
 
+        moodImage3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 3;
+            }
+        });
+
+        moodImage4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 4;
+            }
+        });
+
+        moodImage5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 5;
+            }
+        });
+//      END OF MOOD BAR CHUNK
     }
+
+
+
+
+
 
     public void datePicker(){
 
@@ -169,8 +221,8 @@ public class AddNoteActivity extends AppCompatActivity {
         noteModel.setCreatedTime(createdTime);
         noteModel.setText(text);
         noteModel.setSendingTime(selectedDate.getTimeInMillis());
-        noteModel.setMoodBefore(1);
-        noteModel.setMoodAfter(5);
+        noteModel.setMoodBefore(rating);
+        noteModel.setMoodAfter(0);
         realm.commitTransaction();
         Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(AddNoteActivity.this,NotificationScheduleActivity.class);

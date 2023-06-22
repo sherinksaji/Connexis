@@ -31,8 +31,10 @@ public class NotificationScheduleActivity extends AppCompatActivity {
         selectedDate.set(Calendar.SECOND,0);
         selectedDate.set(Calendar.MILLISECOND, 0);
 
+
         String sendingFormatedTime = DateFormat.getDateTimeInstance().format(selectedDate.getTimeInMillis());
          Log.i("sendingTime",sendingFormatedTime);// correct time is logged!!
+
 
          //focus on notification independent of everything else here
     }

@@ -28,6 +28,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         this.context = context;
         this.notesList = notesList;
         this.emojisAL = new ArrayList<>();
+        emojisAL.add(R.drawable.qn_mark);
         emojisAL.add(R.drawable.emoji_1);
         emojisAL.add(R.drawable.emoji_2);
         emojisAL.add(R.drawable.emoji_3);
@@ -49,11 +50,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.sendingTime.setText(sendingFormatedTime);
 
         //TODO: set before emoji
-        holder.beforeEmoji.setImageResource(emojisAL.get(note.getMoodBefore()-1));
+        holder.beforeEmoji.setImageResource(emojisAL.get(note.getMoodBefore()));
         //TODO: set arrow
         holder.arrow.setImageResource(R.drawable.arrow);
         //TODO: set after emoji
-        holder.afterEmoji.setImageResource(emojisAL.get(note.getMoodAfter()-1));
+        holder.afterEmoji.setImageResource(emojisAL.get(note.getMoodAfter()));
         holder.text.setText(note.getText());
 
         String createdFormatedTime = DateFormat.getDateTimeInstance().format(note.getCreatedTime());

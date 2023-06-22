@@ -10,6 +10,7 @@ import android.widget.Button;
 public class HomeActivity extends AppCompatActivity {
     Button addNoteBtn;
     Button viewHistoryBtn;
+    Button viewNoteBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
 
         addNoteBtn=findViewById(R.id.addNoteBtn);
         viewHistoryBtn=findViewById(R.id.viewHistoryBtn);
+        viewNoteBtn=findViewById(R.id.viewNoteBtn);
 
         addNoteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +31,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this,ViewHistoryActivity.class));
+            }
+        });
+
+        viewNoteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ViewNoteActivity.class));
             }
         });
     }
