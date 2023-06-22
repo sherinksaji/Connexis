@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
@@ -24,6 +25,15 @@ public class AddNoteActivity extends AppCompatActivity {
     EditText textInput;
     MaterialButton savebtn;
     final Calendar selectedDate= Calendar.getInstance();
+
+//  for the mood bar buttons
+    private int rating = 0;
+    private ImageView moodImage1;
+    private ImageView moodImage2;
+    private ImageView moodImage3;
+    private ImageView moodImage4;
+    private ImageView moodImage5;
+//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +73,49 @@ public class AddNoteActivity extends AppCompatActivity {
                 saveNote();
             }
         });
+
+//      START OF MOOD BAR CHUNK
+        moodImage1 = findViewById(R.id.mood_image1);
+        moodImage2 = findViewById(R.id.mood_image2);
+        moodImage3 = findViewById(R.id.mood_image3);
+        moodImage4 = findViewById(R.id.mood_image4);
+        moodImage5 = findViewById(R.id.mood_image5);
+
+        moodImage1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 1;
+            }
+        });
+
+        moodImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 2;
+            }
+        });
+
+        moodImage3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 3;
+            }
+        });
+
+        moodImage4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 4;
+            }
+        });
+
+        moodImage5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rating = 5;
+            }
+        });
+//      END OF MOOD BAR CHUNK
     }
 
     public void datePicker(){

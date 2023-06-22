@@ -71,30 +71,35 @@
         android:padding="10dp">
 
         <ImageButton
+            android:id="@+id/mood_image1"
             android:layout_width="60dp"
             android:layout_height="65dp"
             android:background="@drawable/emoji_1"
             app:backgroundTint="@drawable/emoji_1" />
 
         <ImageButton
+            android:id="@+id/mood_image2"
             android:layout_width="63dp"
-            android:layout_height="64dp"
+            android:layout_height="66dp"
             android:background="@drawable/emoji_2"
             app:backgroundTint="@drawable/emoji_2" />
 
         <ImageButton
+            android:id="@+id/mood_image3"
             android:layout_width="60dp"
             android:layout_height="66dp"
             android:background="@drawable/emoji_3"
             app:backgroundTint="@drawable/emoji_3" />
 
         <ImageButton
+            android:id="@+id/mood_image4"
             android:layout_width="62dp"
             android:layout_height="66dp"
             android:background="@drawable/emoji_4"
             app:backgroundTint="@drawable/emoji_4" />
 
         <ImageButton
+            android:id="@+id/mood_image5"
             android:layout_width="64dp"
             android:layout_height="62dp"
             android:background="@drawable/emoji_5"
