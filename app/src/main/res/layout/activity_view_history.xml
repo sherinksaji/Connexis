@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00B0FF"
+    android:background="@drawable/activity_pages_bg"
     android:padding="10dp"
     tools:context=".ViewHistoryActivity">
 
     <TextView
         android:id="@+id/banner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="History"
+        android:layout_width="392dp"
+        android:layout_height="63dp"
+        android:gravity="center"
+        android:text="Your Notes"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/black"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView

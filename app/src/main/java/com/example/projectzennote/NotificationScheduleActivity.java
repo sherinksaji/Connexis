@@ -53,7 +53,7 @@ public class NotificationScheduleActivity extends AppCompatActivity {
         pending_intent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(this, broadcast_receiver.class), PendingIntent.FLAG_IMMUTABLE);
         alarm_manager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        TextView schedule = findViewById(R.id.textView);
+
 
         set_notification_alarm(60*1000);
 

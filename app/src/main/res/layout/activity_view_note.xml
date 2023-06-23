@@ -1,45 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#00B0FF"
+    android:background="@drawable/activity_pages_bg"
     android:padding="10dp"
+    android:layout_width="373dp"
+    android:layout_height="688dp"
+    android:orientation="vertical"
     tools:context=".ViewHistoryActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/banner"
-            android:layout_width="395dp"
-            android:layout_height="wrap_content"
-            android:text="Today's Note"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:text="Today's Note"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:paddingTop="10dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/createdTime"
-            android:layout_width="402dp"
-            android:layout_height="wrap_content"
-            android:textColor="#858484"
-            android:textSize="12dp"
-            tools:text="You wrote this note on Jan 21 2020 " />
+    <TextView
+        android:id="@+id/createdTime"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        tools:text="You wrote this note on Jan 21 2020 " />
+
+
+    <FrameLayout
+        android:layout_width="318dp"
+        android:layout_height="243dp"
+        android:layout_gravity="center"
+        android:background="@drawable/note_boarder"
+        android:paddingTop="38dp"
+        android:paddingBottom="32dp">
 
         <TextView
             android:id="@+id/text"
-            android:layout_width="397dp"
-            android:layout_height="269dp"
-            android:layout_marginTop="29dp"
-            android:textColor="#393939"
-            tools:text="My long long long descrption" />
+            android:layout_width="289dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#a3b18a"
+            android:gravity="top"
+            android:paddingTop="10dp"
+            android:lines="10"
+            android:text="My long long long description"
+            android:textColor="@color/black" />
+    </FrameLayout>
 
-        <TextView
+    <TextView
             android:id="@+id/mood_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,9 +62,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:gravity="left"
+            android:paddingTop="10dp"
             android:text="How do you feel after reading the note?"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:textAlignment="center"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -62,6 +78,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_corner"
             android:orientation="horizontal"
+            android:paddingTop="10dp"
             android:padding="10dp">
 
             <ImageButton
@@ -103,7 +120,7 @@
             android:layout_height="40dp"
             android:background="@drawable/arrow"
             android:scaleType="center" />
-    </LinearLayout>
 
 
-</RelativeLayout>
+
+</LinearLayout>

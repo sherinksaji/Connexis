@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#00B0FF"
+    android:background="@drawable/activity_pages_bg"
     android:padding="20dp"
     tools:context=".AddNoteActivity">
 
@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/bannerTV"
         android:text="Add new note"
-        android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:textSize="40dp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_margin="20dp"/>
@@ -25,28 +25,37 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner">
+        android:layout_margin="10dp">
 
         <Button
             android:id="@+id/sendDatePkrBtn"
             android:layout_width="310dp"
             android:layout_height="60dp"
+
             android:layout_gravity="center"
-            android:backgroundTint="#00B0FF"
+            android:backgroundTint="#0C0C0C"
             android:text="Select Date To Send"
             android:textColor="@color/white" />
 
-        <EditText
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textInput"
-            android:hint="Your future you awaits you!"
-            android:background="#3000B0FF"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:lines="10"
-            android:gravity="top"/>
+            android:layout_height="match_parent"
+            android:paddingTop="38dp"
+            android:paddingBottom="32dp"
+            android:background="@drawable/note_boarder">
+
+            <EditText
+                android:id="@+id/textInput"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="#a3b18a"
+                android:gravity="top"
+                android:lines="10"
+                android:hint="Your future self is waiting"
+                android:textColor="@color/black" />
+        </FrameLayout>
 
 
     </LinearLayout>
@@ -56,10 +65,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/mood_question"
         android:text="How are you feeling today?"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:textAlignment="center"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:gravity="left"
+
         android:layout_margin="10dp"/>
 
     <LinearLayout
@@ -113,8 +123,8 @@
         android:id="@+id/savebtn"
         android:text="SAVE NOTE"
         android:layout_gravity="center"
-        android:backgroundTint="@color/white"
-        android:textColor="#00B0FF"/>
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"/>
 
 
 </LinearLayout>
