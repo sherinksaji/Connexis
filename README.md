@@ -11,7 +11,7 @@ We are a team of five students from NUS, NTU, SMU, SUTD and TP.
 
 ***
 
-Website Link to Android Emulator: https://appetize.io/app/u3vh2ukr2dy3gah4wl4fecvwzy
+Front-end Website Link to Android Emulator: https://appetize.io/app/u3vh2ukr2dy3gah4wl4fecvwzy
 
 Demo: https://www.youtube.com/watch?v=YqWuX8KRABA
 
