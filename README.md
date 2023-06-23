@@ -13,7 +13,7 @@ We are a team of five students from NUS, NTU, SMU, SUTD and TP.
 
 Website Link to Android Emulator: https://appetize.io/app/u3vh2ukr2dy3gah4wl4fecvwzy
 
-Demo: 
+Demo: https://www.youtube.com/watch?v=YqWuX8KRABA
 
 ***
 
@@ -31,3 +31,5 @@ When reading notes, legal professionals receive affirmation from the most valuab
 - [Android](https://www.android.com/) hosted on [Appetize](https://appetize.io)
 - [Java](https://www.java.com/en/) hosted on [Android Studio](https://developer.android.com/studio)
 - [MongoDB](https://realm.io/) hosted on [MongoDB Realm](https://www.mongodb.com/docs/realm/)
+
+**DISCLAIMER:** All names, characters, and incidents used in this project are fictitious. No identification with actual persons (living or deceased), places, buildings, and products is intended or should be inferred.
