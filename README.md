@@ -2,6 +2,8 @@
 
 SMU LIT Hackathon 2023
 
+![Most Innovative Award (Hybrid Working)](https://img.shields.io/badge/-Most%20Innovative%20Award%20(Hybrid%20Working)-blue)
+
 We are a team of five students from NUS, NTU, SMU, SUTD and TP.
 - [Chan Ric | NTU Physics & Mathematical Sciences](https://github.com/ch0002ic)
 - [Ng Jun Rui | SMU Law](https://github.com/Jaronex)
